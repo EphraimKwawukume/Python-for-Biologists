@@ -16,7 +16,7 @@ print("sequence is "+my_dna+" and length is "+str(dna_length))
 #now what if we want to do stuff like write into the file what do we do we use a modifoed form of the open function which takes two arguements open(dna.txt,"w"or "a"or "r"),w writes stuff at the begining of the text in the file ,a appends or write dtuff at the end of the stuff in the file ,r which is the de4fault ,just allows us to read the file but instead of storing the file in a variable in when using read ,write behaves like the print function
 print("\n")
 my_file = open("out.txt","w")
-my_file.write("Hello world with ghana")
+my_file.write("Hello world without ghana ,im going crazy...i dunno")
 # write "abcdef"
 my_file.write("\nabc" + "def")
 # write "8"
