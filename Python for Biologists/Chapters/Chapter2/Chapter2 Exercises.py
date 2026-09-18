@@ -106,7 +106,7 @@ print(exon1+intron1.lower()+exon2+intron2.lower()+exon3)
 
 
 
-
+print("EDD".lower())
 
 
 
