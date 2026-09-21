@@ -101,8 +101,50 @@ for it in range(0,10,2):
 
 print('\n')
 doc = "AGTACGACTAACATCCCAGTACGAAGGTTTTAGTAGT"
-point = range (4,44,4)#i dunno the lenght hence used a large number
-print(str(len(doc))) #Output: 31 it seems if the 2nd number is larger than the length of the string ,this code repeats the last substring till the 40 quota has reached ,dunno why ,for example with this code im supposed to get 8 or 7
+point = range (4,len(doc),4)#i dunno the lenght hence used a large number
+print(str(len(doc))) #Output: 31 it seems if the 2nd number is larger than the length of the string ,this code repeats the last substring till the 44 quota has reached ,dunno why ,for example with this code im supposed to get 9:AGTACGACTAACATCCCAGTACGAAGGTTTTAGTAG-36 because we have 37 characters in the string -but it adds a AGTACGACTAACATCCCAGTACGAAGGTTTTAGTAGT 40 which is inacurate
+#REASon: Your DNA string has 37 characters. When Python evaluates doc[:40], it simply returns the entire string because slicing beyond the end does not repeat characters.
+#To fix this we change the arbitary middle number 44 to the length of the doc
+#So from point = range (4,44,4) to what we have now point = range (4,len(doc),4)
 for num in point:
     sub = doc[:num]
-    print(sub + ' ' + str(num))
+    print(sub + ': ' + str(num))
+
+print('\n')
+fild = open("try.txt")
+# fildin = fild.read() - we cant do this and run a loop because the read() method reads the entire file and returns it as a string, and after doing so  reads the entire file and moves the file cursor to the end. Therefore, this loop has nothing left to read when we try to loop over fildin, we have nothing to loop over hence nothing will be returned in the terminal To loop over the lines in the file, we can use a for loop directly on the file object fild, which will iterate over each line in the file one at a time.
+for line in fild:
+    print(line.strip()) #if we dont do this a gap appears ,because each line already ends with \n, and print() adds another newline.It removes spaces, tabs, and newline characters at the beginning or end. It does not remove spaces inside the text.,when it takes arguement like (abc) it would mean remove all abc's from the text
+
+
+fild.close()
+
+print('\nUsing the with statement to open a file and automatically close it when the indented block finishes and the end="" argument to preserve the original contents of each line\n')
+
+#Apparently a shorter and safer form of this 
+#fild = open("try.txt")
+# for line in fild:
+#    print(line.strip())
+#fild.close() 
+#IS
+with open("try.txt") as fild: #this opens the file and automatically closes it when the indented block finishes.
+    for line in fild: 
+        print(line, end="") #end="" is better here because it preserves the original contents of each line.When reading a file, each line usually already contains a newline:
+        # line = "trying something\n"
+        #Normally:
+        #print(line)
+        #does this: in Terminal
+        #trying something\n (with an extra newline after it)
+        # \n
+        #The first newline comes from the file, and the second comes from print(). That creates a blank line.
+        #With end=""
+        #print() does not add another newline, so the original formatting is preserved.
+        #OH okay so with the rstrip() method we remove the newline from the file basically changing the contents of the file, and with end="" we are just correcting the addition of by the print a newline back in. So the original format of the line is preserved.
+        #
+
+
+
+
+
+
+
