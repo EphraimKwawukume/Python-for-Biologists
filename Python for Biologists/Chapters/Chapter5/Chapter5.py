@@ -77,5 +77,3 @@ assert get_at_content ('ATGC') == 0.5
 assert get_at_content ("AGG") == 0.33
 assert get_at_content("AGG", 1) == 0.3
 assert get_at_content("AGG", 5) == 0.33333
- # no ASsertion ERRorS
- 
