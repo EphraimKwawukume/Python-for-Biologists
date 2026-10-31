@@ -10,7 +10,7 @@ import re
 # If we want to specify a specific number of repeats, we can use curly brackets. Following a character or group with a single number inside curly brackets will match exactly that number of repeats. For example, the pattern GA{5}T will match GAAAAAT but not GAAAAT or GAAAAAAT. Following a character or group with a pair of numbers inside curly brackets separated with a comma allows us to specify an acceptable range of number of repeats. For example, the pattern GA{2,4}T will match GAAT, GAAAT and GAAAAT but not GAT or GAAAAAT. 
 
 # Positions
-# ^  The caret symbol matches the start of a string wehn no in a character group [] if in a character group [^] signifies negation, and 
+# ^  The caret symbol matches the start of a string when not in a character group ^ if in a character group [^] signifies negation, and 
 # $  The dollar symbol matches the end of a string. 
 #The pattern ^AAA will match AAATTT but not GGGAAATTT. 
 #The pattern GGG$ will match AAAGGG but not AAAGGGCCC.
@@ -74,4 +74,11 @@ runs = re.finditer(r"[AT]{3,100}", dna)
 for section in runs:
     run_start = section.start()
     run_end = section.end()
-    print('AT rich region from: ' + str(run_start) + ' to ' + str(run_end))
+    print('AT rich region from: ' + str(run_start) + ' to ' + str(run_end)) #Output: AT rich region from: 5 to 12 AT rich region from: 18 to 26
+#finditer gives us considerably more flexibility that findall.
+#the pattern GG(A|T)CC to describe the AvaII restriction enzyme recognition site, but it could also be written as 
+#• GG[AT]CC,
+#• (GGACC|GGTCC) 
+#• (GGA|GGT)CC
+#• G{2}[AT]C{2}
+#As with other situations where there are multiple different ways to write the same thing, it's best to be guided by what is clearest to read. 
