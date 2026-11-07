@@ -52,10 +52,24 @@ import shutil
 #Listing folder contents
 #os.listdir
 
-for file in os.listdir(r"C:\Users\Admin\Desktop\Art books"):
-    print('the file is ' + file)
+#for file in os.listdir(r"C:\Users\Admin\Desktop\Art books"):
+    print('the file is ' + file) #Output:
+    #the file is Andrew Loomis - Creative.Illustration.pdf
+    #the file is Andrew Loomis - Drawing the Head and Hands.pdf
+    #the file is Andrew Loomis - Fun WIth a Pencil.pdf
+    #the file is Boyer-AHistoryOfMathematics.pdf
 
-print('\n')
+#print('\n')
+
 #To get a list of the contents of the current working directory, use the string "." for the path:
-for file in os.listdir('.'):
-    print('file name is ' + file)
+
+#for file in os.listdir('.'):
+    print('file name is ' + file)#interesting it doesnt go into the folders in the folder we are lsiting
+    #Output: file name is Chapter9 -basic file manipulation.py
+    #file name is examples
+    #file name is exercises #This is a folder that contains files
+    #file name is kenkey.txt
+    #file name is kenkey3.txt #this is just a file
+    #file name is my example(copy)
+    #file name is my example(copy2)
+    #file name is my examples
